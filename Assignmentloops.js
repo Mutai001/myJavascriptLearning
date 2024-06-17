@@ -18,6 +18,7 @@ for (let i = 1; i <= 10; i++) {
 for (let i = 10; i >= 1; i--) {
     console.log(' '.repeat(10 - i) + '*'.repeat(i * 2 - 1));
 }
+
 //5. pyramid
 
 for (let i = 1; i <= 10; i++) {
