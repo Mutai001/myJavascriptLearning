@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tip Calculator Lab</title>
+    <!-- <script src="script.js" defer></script> -->
+
+</head>
+
+<body>
+    <!-- Write your code here -->
+    <label for="billAmount">Bill Amount: </label>
+    <input type="number" id="billAmount" placeholder="Enter bill amount" /><br />
+
+    <label for="tipPercentage">Tip Percentage: </label>
+    <input type="number" id="tipPercentage" min="1" max="99" placeholder="Enter tip percentage" /><br />
+
+    <button id="calculateTip">Calculate Tip</button>
+
+    <p id="tipAmount">Tip Amount:</p>
+    <script>
+        // Write your code here
+        document.getElementById('calculateTip').addEventListener('click', function() {
+            const billAmount = parseFloat(document.getElementById('billAmount').value);
+            const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+            const tipAmountElement = document.getElementById('tipAmount');
+
+            if (isNaN(billAmount) || isNaN(tipPercentage) || tipPercentage < 1 || tipPercentage > 99) {
+                tipAmountElement.textContent = "Invalid Input";
+                return;
+            }
+
+            const tipAmount = (billAmount * (tipPercentage / 100)).toFixed(2);
+            tipAmountElement.textContent = `Tip Amount: $${tipAmount}`;
+        });
+    </script>
+</body>
+
+</html>
