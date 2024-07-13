@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Parser</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h3>Number Converter</h3>
+    <p>
+        You can input any string of characters, this app will help you find the equivalent decimal and hexadecimal value if they exist!
+    </p>
+    <input type="text" placeholder="Enter a String in decimal.." id="string-input" />
+    <button id="submit-input">Get Numbers</button>
+    <div id="output">
+        <section id="error">Cannot Parse given input, try a different input</section>
+        <section id="valid-output">
+            <div id="decimal-output">
+                <p>Decimal</p>
+                <p id="decimal-number">0</p>
+            </div>
+            <div id="hexadecimal-output">
+                <p>Hexadecimal</p>
+                <p id="hexadecimal-number">0</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        const stringInput = document.querySelector("#string-input");
+        const submitButton = document.querySelector("#submit-input");
+        const errorElement = document.querySelector("#error");
+        const validOutputElement = document.querySelector("#valid-output");
+
+        const decimalElement = document.querySelector("#decimal-number");
+        const hexadecimalElement = document.querySelector("#hexadecimal-number");
+
+        let stringInputValue = "";
+
+        function generateNumber(str) {
+            const decimal = parseInt(str, 10); // Parse as decimal
+            const hexadecimal = parseInt(str, 16); // Parse as hexadecimal
+
+            return {
+                decimal,
+                hexadecimal
+            };
+        }
+
+        submitButton.addEventListener("click", () => {
+            stringInputValue = stringInput.value.trim();
+            errorElement.style.display = "none";
+            validOutputElement.style.display = "none";
+
+            stringInput.value = "";
+
+            const {
+                decimal,
+                hexadecimal
+            } = generateNumber(stringInputValue);
+
+            if (isNaN(decimal) && isNaN(hexadecimal)) {
+                console.log({
+                    decimal,
+                    hexadecimal
+                });
+                errorElement.style.display = "block";
+            } else {
+                if (!isNaN(decimal)) {
+                    decimalElement.textContent = decimal;
+                } else {
+                    decimalElement.textContent = "0";
+                }
+
+                if (!isNaN(hexadecimal)) {
+                    hexadecimalElement.textContent = hexadecimal;
+                } else {
+                    hexadecimalElement.textContent = "0";
+                }
+
+                validOutputElement.style.display = "flex";
+            }
+        });
+    </script>
+</body>
+
+</html>
