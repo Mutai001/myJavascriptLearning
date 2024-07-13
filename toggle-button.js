@@ -1,0 +1,23 @@
+< div class = "warnAA1" >
+    <
+    span onClick = "document.getElementsByClassName('warnAA1')[0].style.display = 'none';" >
+    <
+    button > & times; < /button> < /span > <
+span onClick = "document.getElementsByClassName('warnAA1')[0].style.display = 'content';" >
+    <
+    button > - < /button> < /
+span > <
+    /div>
+
+<
+div class = "warnAA1" >
+    <
+    span onClick = "document.getElementsByClassName('warnAA1')[0].style.display = 'none';" >
+    <
+    button > & times; < /button> < /
+span > <
+    span onClick = "document.getElementsByClassName('warnAA1')[0].style.display = 'content';" >
+    <
+    button > - < /button> < /
+    span > <
+    /div>
