@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color app</title>
+    <style>
+        #myParagraph {
+            color: black;
+            /* Initial text color */
+        }
+    </style>
+</head>
+
+<body>
+    <p id="myParagraph">This is a paragraph whose color will change.</p>
+    <button id="colorButton">Change Color</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paragraph = document.getElementById('myParagraph');
+            const button = document.getElementById('colorButton');
+
+            const colors = ['black', 'red', 'green', 'blue'];
+            let currentColorIndex = 0;
+
+            button.addEventListener('click', () => {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                paragraph.style.color = colors[currentColorIndex];
+            });
+        });
+    </script>
+</body>
+
+</html>
